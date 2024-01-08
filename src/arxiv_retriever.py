@@ -1,23 +1,23 @@
-
+from stqdm import stqdm
 import arxiv
 import streamlit as st
 
-@st.cache_data(show_spinner=False)
-def arxiv_search(search_term):
+
+def arxiv_search(search_term, num_of_articles):
     """
     This function takes a search term and returns a list containing 
     the title and summary of the 100 most recent articles matching the search term.
     """
 
     # Construct the default API client.
-    client = arxiv.Client(page_size = 1000,
+    client = arxiv.Client(page_size = 100,
                           delay_seconds = 3.0,
                           num_retries = 3)
 
     # Search for the 10 most recent articles matching the keyword "quantum."
     search = arxiv.Search(
         query = search_term,
-        max_results = 1000,
+        max_results = num_of_articles,
         sort_by = arxiv.SortCriterion.SubmittedDate
     )
 
@@ -32,8 +32,7 @@ def arxiv_search(search_term):
         article_dict = {
             "title": result.title,
             "summary": result.summary,
-            "doi": result.doi,
-            "pdf_url": result.pdf_url
+            "link": result.pdf_url
         }
         articles_list.append(article_dict)
 

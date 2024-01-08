@@ -19,7 +19,7 @@ def create_documents(articles_list):
     documents = []
     for paper in articles_list:
         # Create a Document object for each paper
-        document = Document(page_content=paper["summary"], metadata={"title": paper["title"], "url": paper.get("pdf_url", "No URL provided")})
+        document = Document(page_content=paper["summary"], metadata={"title": paper["title"], "link": paper.get("link", "No URL provided")})
         documents.append(document)
     return documents
 
