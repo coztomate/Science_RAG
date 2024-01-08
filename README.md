@@ -1,6 +1,6 @@
 # Scientific Article Explorer 
 
-Answered questions based on abstracts retrieved from ArXiv on search term entered. Return pdfs of sources.
+Answered questions based on abstracts retrieved from ArXiv or PubMed after search term entered. Returns pdfs of sources.
 
 ## Getting Started
 
@@ -42,7 +42,7 @@ Answered questions based on abstracts retrieved from ArXiv on search term entere
 5. **Run the app:**
 
     ```bash
-    streamlit run app.py
+    streamlit run app_qa.py
     ```
 
 
